@@ -58,9 +58,9 @@ def placements(request):
     return render(request, 'placements.html', context)
 
 
-def placement_detail(request, pk):
+def placement_detail(request, slug):
 
-    placements = get_object_or_404(Placement, pk)
+    placements = get_object_or_404(Placement, slug=slug)
 
     context = {'placement': placement}
 
