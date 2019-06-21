@@ -127,3 +127,18 @@ def confirm_bids(request):
         bid.save()
 
     return redirect('app:bid-summary')
+
+
+def about(request):
+    
+    return render(request, 'about.html')
+
+
+@login_required
+def dashboard(request):
+    
+    # Get data
+
+    context = {}
+
+    return render(request, 'dashboard.html', context)

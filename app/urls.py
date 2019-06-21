@@ -14,5 +14,8 @@ urlpatterns = [
     path('marketplace/<placement_slug>/', views.placement_detail, name='placement-detail'),
 
     path('my-bids/', views.bid_summary, name='bid-summary' ),
-    path('confirm-bids/', views.confirm_bids, name='confirm-bids')
+    path('confirm-bids/', views.confirm_bids, name='confirm-bids'),
+
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('about/', views.about, name='about')
 ]
