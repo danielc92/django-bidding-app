@@ -151,6 +151,8 @@ def dashboard(request):
                     .values('placement__placement_company__company_name', 'offer')\
                     .annotate(Sum('offer'))\
                     .order_by('-offer')[:5]
+
+    print(top_5)
     top_5_offer_names = [item['placement__placement_company__company_name'] for item in top_5]
     top_5_offer_values = [item['offer'] for item in top_5]
 

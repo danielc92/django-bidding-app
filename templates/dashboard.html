@@ -47,6 +47,7 @@
             <div class="col l12 s12">
                 <div class="card">
                     <div class="card-content">
+                            <h4>Top 5 placements by $</h4>
                             <canvas id="myChart"></canvas>
                     </div>
                 </div>
@@ -86,22 +87,31 @@ animateValue("total_offers", 0, {{ total_offers }}, 500);
 // Chart.js code
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
         labels: {{ top_5_offer_names|safe }},
         datasets: [{
-            label: '# of Shares',
+            label: '# of offers',
             data:{{ top_5_offer_values|safe }},
-            backgroundColor: '#303F9F',
-            //borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(48, 63, 159, 0.6)',
+            borderColor: 'rgba(48, 63, 159, 1)',
             borderWidth: 1
         }]
     },
     options: {
         scales: {
             yAxes: [{
+                gridLines: {display:false},
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    maxTicksLimit: 5
+                }
+            }],
+            xAxes: [{
+                gridLines: {display:true,  color:'#F5F5F5'},
+                ticks: {
+                    beginAtZero: true,
+                    maxTicksLimit: 6
                 }
             }]
         }
