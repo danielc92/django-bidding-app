@@ -4,8 +4,8 @@
           <a href="{% url 'app:home' %}" class="brand-logo" style="font-size: 1.3rem;">BIDDING SYSTEM</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'app:placements' %}">Marketplace</a></li>
-                <li><a href="{% url 'app:bid-summary' %}">Bid Summary</a></li>
+                <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i></a></li>
+                <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i></a></li>
                 {% if user.is_authenticated %}
                     <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
                     <li>Logged in as <strong>{{ user.username }}</strong></li>
