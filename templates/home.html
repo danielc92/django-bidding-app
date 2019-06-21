@@ -2,10 +2,7 @@
 
 {% block content %}
 {% include 'nav.html' %}
-
-              
-        
-      
+{% load static %}      
 
 <section class="section">
     <section class="container">
@@ -21,6 +18,7 @@
         <div class="card z-depth-2">
                 <div class="card-content">
                         <h4>The Marketplace</h4>
+                        <img class="responsive-img" src="{% static 'austin-distel-1555609-unsplash.jpg' %}" alt="">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus ullam, odit iure incidunt inventore praesentium consectetur in animi rerum labore ab esse ex deleniti deserunt quaerat sapiente sunt quis a?</p>
                         <a href="{% url 'app:placements' %}" class="btn waves-effect-waves-light pink" style="margin-top: 1rem;">Go to Marketplace</a>
                 </div>
