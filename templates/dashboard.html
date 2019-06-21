@@ -12,8 +12,8 @@
             <div class="col l3 s12">
                 <div class="card">
                     <div class="card-content center">
-                        <p class="chip">Total Users</p>
-                        <h4>33</h4>
+                        <p class="chip">Registered Users</p>
+                        <h4 id="total_users"></h4>
                     </div>
                 </div>
             </div>
@@ -21,23 +21,23 @@
                 <div class="card">
                         <div class="card-content center">
                                 <p class="chip">Total Companies</p>
-                                <h4 id="total_companies">33</h4>
+                                <h4 id="total_companies"></h4>
                             </div>
                 </div>
             </div>
             <div class="col l3 s12">
                 <div class="card">
                         <div class="card-content center">
-                                <p class="chip">Total Users</p>
-                                <h4>33</h4>
+                                <p class="chip">Total Offers ($)</p>
+                                <h4><span id="total_offers"></span><span>K</span></h4>
                             </div>
                 </div>
             </div>
             <div class="col l3 s12">
                     <div class="card">
                     <div class="card-content center">
-                            <p class="chip">Total Users</p>
-                            <h4>33</h4>
+                            <p class="chip">Total Placements</p>
+                            <h4 id="total_placements"></h4>
                         </div>
                     </div>
                 </div>
@@ -64,19 +64,23 @@
 function animateValue(id, start, end, duration) {
     var range = end - start;
     var current = start;
+    var increment;
     var increment = end > start? 1 : -1;
     var stepTime = Math.abs(Math.floor(duration / range));
     var obj = document.getElementById(id);
     var timer = setInterval(function() {
         current += increment;
-        obj.innerHTML = current;
+        obj.innerText = current;
         if (current == end) {
             clearInterval(timer);
         }
     }, stepTime);
 }
 
-animateValue("total_companies", 0, 165, 1750);
+animateValue("total_companies", 0, {{ total_companies }}, 1750);
+animateValue("total_placements", 0, {{ total_placements }}, 1750);
+animateValue("total_users", 0, {{ total_users }}, 1750);
+animateValue("total_offers", 0, {{ total_offers }}, 500);
 </script>
 <script>
 // Chart.js code
@@ -84,26 +88,12 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: {{ top_5_offer_names|safe }},
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.7)',
-                'rgba(54, 162, 235, 0.7)',
-                'rgba(255, 206, 86, 0.7)',
-                'rgba(75, 192, 192, 0.7)',
-                'rgba(153, 102, 255, 0.7)',
-                'rgba(255, 159, 64, 0.7)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            label: '# of Shares',
+            data:{{ top_5_offer_values|safe }},
+            backgroundColor: '#303F9F',
+            //borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1
         }]
     },

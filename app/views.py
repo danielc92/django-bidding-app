@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomRegisterForm
-from .models import Placement, PlacementBid, Bid
+from .models import Placement, PlacementBid, Bid, Company
+from django.contrib.auth.models import User
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Sum, Avg, Count
 
 
 def register(request):
@@ -130,15 +132,34 @@ def confirm_bids(request):
 
 
 def about(request):
-    
+
     return render(request, 'about.html')
 
 
 @login_required
 def dashboard(request):
     
-    # Get data
+    # Get tile data
+    total_companies = Company.objects.count()
+    total_users = User.objects.count()
+    total_placements = Placement.objects.count()
+    total_offers = PlacementBid.objects.aggregate(Sum('offer'))['offer__sum']
+    total_offers_k = total_offers // 1000
+    
+    # Get aggregate data
+    top_5 = PlacementBid.objects\
+                    .values('placement__placement_company__company_name', 'offer')\
+                    .annotate(Sum('offer'))\
+                    .order_by('-offer')[:5]
+    top_5_offer_names = [item['placement__placement_company__company_name'] for item in top_5]
+    top_5_offer_values = [item['offer'] for item in top_5]
 
-    context = {}
+    # Store context
+    context = {'total_companies':total_companies,
+                'total_users':total_users,
+                'total_placements':total_placements,
+                'total_offers':total_offers_k,
+                'top_5_offer_names':top_5_offer_names,
+                'top_5_offer_values':top_5_offer_values}
 
     return render(request, 'dashboard.html', context)
