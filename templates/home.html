@@ -1,10 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% include 'nav.html' %}
+
+              
+        
+      
+
 <section class="section">
     <section class="container">
-        <h1>home</h1>
+        {% if user.is_authenticated == False %}
+        <div class="card z-depth-2">
+                <div class="card-content">
+                        <h4>Notice</h4>
+                        <p>You must have a registered account and be logged in, in order to view and place bids within our marketplace.</p>
+                </div>
+            </div>
+        {% endif %}
+        
 
+        <div class="card z-depth-2">
+                <div class="card-content">
+                        <h4>
+                            Alert
+                        </h4>
+                        <p>Sunt excepteur do culpa velit consequat deserunt aute deserunt. Voluptate sit cillum cillum nostrud. Esse duis eu ut minim ad excepteur consequat amet est. Ullamco Lorem tempor excepteur veniam do ea incididunt anim eu non est eu voluptate adipisicing.</p>
+                </div>
+            </div>
+       
     </section>
 </section>
 

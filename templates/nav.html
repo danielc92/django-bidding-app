@@ -1,0 +1,29 @@
+<nav>
+        <div class="nav-wrapper indigo">
+            <div class="container">
+          <a href="#!" class="brand-logo" style="font-size: 1.3rem;">BIDDING SYSTEM</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+                <li><a href="#">Bids</a></li>
+                <li><a href="#">Bid Summary</a></li>
+                {% if user.is_authenticated %}
+                    <li><a class="btn waves-effect waves-light" href="{% url 'app:logout' %}">Logout</a></li>
+                {% else %}
+                <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
+                    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+                {% endif %}
+          </ul>
+        </div>
+        </div>
+      </nav>
+    
+      <!-- <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Bids</a></li>
+        <li><a href="#">Bid Summary</a></li>
+        {% if user.is_authenticated %}
+            <li><a class="btn waves-effect waves-light" href="#">Logout</a></li>
+        {% else %}
+            <li><a class="btn waves-effect waves-light" href="#">Login</a></li>
+        {% endif %}
+        
+      </ul> -->

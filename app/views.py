@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CustomRegisterForm
 from .models import Placement
 from django.contrib.auth import login as auth_login
@@ -12,7 +12,7 @@ def register(request):
         form = CustomRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('app:home')
+            return redirect('app:login')
     else:
         form = CustomRegisterForm()
     
@@ -41,7 +41,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-
+    return redirect('app:login')
 
 def home(request):
 

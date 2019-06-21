@@ -4,17 +4,10 @@
 <section class="section">
     <section class="container">
         <form action="" method="POST" class="form">
-            <label for="" class="label">
-                Username
-            </label>
-            <input type="text" name="username">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-            <label for="" class="label">
-                Username
-            </label>
-            <input type="text" name="username">
-
-            <button class="btn waves-effect" type="submit">Login</button>
+            <button class="btn waves-effect" type="submit">Register</button>
 
         </form>
 
