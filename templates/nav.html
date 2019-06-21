@@ -20,14 +20,13 @@
       </nav>
     
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{% url 'app:placements' %}">Marketplace</a></li>
-                <li><a href="#">Bid Summary</a></li>
-                {% if user.is_authenticated %}
-                    <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
-                    <li>Logged in as <strong>{{ user.username }}</strong></li>
-                {% else %}
-                <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
-                    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
-                {% endif %}
-        
+            <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i>Marketplace</a></li>
+            <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i>My Bids</a></li>
+            {% if user.is_authenticated %}
+                <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
+                <li>Logged in as <strong>{{ user.username }}</strong></li>
+            {% else %}
+            <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
+                <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+            {% endif %}
       </ul>
