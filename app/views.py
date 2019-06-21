@@ -62,6 +62,10 @@ def placement_detail(request, placement_slug):
 
     placement = get_object_or_404(Placement, placement_slug=placement_slug)
 
+    if request.method == 'POST':
+        submitted_quantity = request.POST.get('quantity')
+        submitted_amount = request.POST.get('amount')
+
     context = {'placement': placement}
 
     return render(request, 'placement_detail.html', context)
