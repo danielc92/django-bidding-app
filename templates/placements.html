@@ -24,9 +24,9 @@
                         <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Placement Title</th>
-                                        <th>Placement Company</th>
+                              
+                                        <th>Placement Desc</th>
+                                        <th>Company</th>
                                         <th>Added</th>
                                         <th>Modified</th>
                                         <th>View Details</th>
@@ -36,9 +36,9 @@
                                 <tbody>
                                         {%for p in placements %}
                                         <tr>
-                                            <td>{{ p.id }}</td>
+                             
                                             <td>{{ p.placement_title }}</td>
-                                            <td>{{ p.placement_company }}</td>
+                                            <td><span class="chip indigo white-text">{{ p.placement_company }}</span></td>
                                             <td>{{ p.placement_created }}</td>
                                             <td>{{ p.placement_modified }}</td>
                                             <td><a href="{% url 'app:placement-detail' p.placement_slug %}" style="margin-top: 1rem;" class="btn pink waves-effect waves-light">View Details</a></td>
@@ -46,6 +46,19 @@
                                         {% endfor %}
                                 </tbody>
                             </table>
+
+                            <ul class="pagination center">
+                                {% if placements.has_previous %}
+                                <li class="waves-effect"><a href="?page={{placements.previous_page_number}}">{{ placements.previous_page_number}}</a></li>
+                                {% endif %}
+
+                                <li class="active indigo"><a href="#!">{{placements.number}}</a></li>
+                               
+                                {% if placements.has_next %}
+                                <li class="waves-effect"><a href="?page={{placements.next_page_number}}">{{ placements.next_page_number}}</a></li>
+                                {% endif %}
+                            </ul>
+                                            
                 </div>
             </div>
 

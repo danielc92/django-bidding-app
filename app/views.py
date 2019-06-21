@@ -5,6 +5,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 
 def register(request):
@@ -39,20 +40,25 @@ def login(request):
         return render(request, 'login.html') 
 
 
-def logout(request):
-    auth_logout(request)
-    return redirect('app:login')
-
-
 def home(request):
 
     return render(request, 'home.html')
 
 
 @login_required
+def logout(request):
+    auth_logout(request)
+    return redirect('app:login')
+
+
+@login_required
 def placements(request):
     
-    placements = Placement.objects.all()
+    all_placements = Placement.objects.all()
+
+    paginator = Paginator(all_placements, 18)
+    page = request.GET.get('page')
+    placements = paginator.get_page(page)
 
     context = {'placements': placements}
 
