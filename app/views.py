@@ -91,7 +91,13 @@ def placement_detail(request, placement_slug):
 
 @login_required
 def bid_summary(request):
-    pass
+
+    bids = PlacementBid.objects.filter(user=request.user)
+
+    context = {'bids': bids}
+
+    return render(request, 'bid-summary.html', context)
+
 
 
 @login_required

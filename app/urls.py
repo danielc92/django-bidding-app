@@ -7,7 +7,11 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
-    path('home/', views.home, name='home'),
+
+    path('', views.home, name='home'),
+    
     path('marketplace/', views.placements, name='placements'),
-    path('marketplace/<placement_slug>/', views.placement_detail, name='placement-detail')
+    path('marketplace/<placement_slug>/', views.placement_detail, name='placement-detail'),
+
+    path('my-bids/', views.bid_summary, name='bid-summary' )
 ]
