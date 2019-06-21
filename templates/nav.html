@@ -1,34 +1,34 @@
 <nav>
-        <div class="nav-wrapper indigo darken-2">
-            <div class="container">
-          <a href="{% url 'app:home' %}" class="brand-logo" style="font-size: 1.3rem;">
-                <i class="material-icons pink-text" style="margin-right: 0.2rem;">monetization_on</i>BIDDING SYSTEM</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i></a></li>
-                <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i></a></li>
-                <li><a href="{% url 'app:home' %}"><i class="material-icons">assignment</i></a></li>
-                {% if user.is_authenticated %}
-                    <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
-                    <li>Logged in as <strong>{{ user.username }}</strong></li>
-                {% else %}
-                <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
-                    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
-                {% endif %}
-          </ul>
-        </div>
-        </div>
-      </nav>
-    
-      <ul class="sidenav" id="mobile-demo">
-            <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i>Marketplace</a></li>
-            <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i>My Bids</a></li>
-            <li><a href="{% url 'app:home' %}"><i class="material-icons">assignment</i>About</a></li>
-            {% if user.is_authenticated %}
-                <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
-                <li>Logged in as <strong>{{ user.username }}</strong></li>
-            {% else %}
-            <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
-                <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
-            {% endif %}
-      </ul>
+<div class="nav-wrapper indigo darken-2">
+    <div class="container">
+    <a href="{% url 'app:home' %}" class="brand-logo" style="font-size: 1.3rem;">
+        <i class="material-icons pink-text" style="margin-right: 0.2rem;">monetization_on</i>BIDDING SYSTEM</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger waves-effect waves-light"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i></a></li>
+        <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i></a></li>
+        <li><a href="{% url 'app:home' %}"><i class="material-icons">assignment</i></a></li>
+        {% if user.is_authenticated %}
+            <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
+            <li>Logged in as <strong>{{ user.username }}</strong></li>
+        {% else %}
+        <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
+            <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+        {% endif %}
+    </ul>
+</div>
+</div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i>Marketplace</a></li>
+    <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i>My Bids</a></li>
+    <li><a href="{% url 'app:home' %}"><i class="material-icons">assignment</i>About</a></li>
+    {% if user.is_authenticated %}
+        <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
+        <li>Logged in as <strong>{{ user.username }}</strong></li>
+    {% else %}
+    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
+        <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+    {% endif %}
+</ul>
