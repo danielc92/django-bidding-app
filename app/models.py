@@ -25,7 +25,9 @@ class PlacementBid(models.Model):
     """
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
+    bid_amount = models.IntegerField()
+    bid_shares = models.IntegerField()
+    
     placementbid_created = models.DateTimeField(auto_now_add=True)
     placementbid_modified = models.DateTimeField(auto_now=True)
 
@@ -35,9 +37,12 @@ class PlacementBid(models.Model):
 
 class Placement(models.Model):
     """
-    A placement allows a group of investors to bid on company capital raise
+    A placement allows investors to bid on company capital raise
     """
+    placement_title = models.CharField(max_length=255)
+    placement_slug = models.SlugField()
     placement_company = models.ForeignKey(Company, on_delete=models.CASCADE)
+
 
     placement_created = models.DateTimeField(auto_now_add=True)
     placement_modified = models.DateTimeField(auto_now=True)
@@ -48,11 +53,11 @@ class Placement(models.Model):
 
 class Bid(models.Model):
 
-    bid_amount = models.IntegerField()
-    bid_shares = models.IntegerField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    bid_status = models.BooleanField(default=False)
 
     bid_created = models.DateTimeField(auto_now_add=True)
     bid_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.
+        return self.user
