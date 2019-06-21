@@ -49,6 +49,7 @@ def home(request):
     return render(request, 'home.html')
 
 
+@login_required
 def placements(request):
     
     placements = Placement.objects.all()
@@ -58,6 +59,7 @@ def placements(request):
     return render(request, 'placements.html', context)
 
 
+@login_required
 def placement_detail(request, placement_slug):
 
     placement = get_object_or_404(Placement, placement_slug=placement_slug)
@@ -66,6 +68,32 @@ def placement_detail(request, placement_slug):
         submitted_quantity = request.POST.get('quantity')
         submitted_amount = request.POST.get('amount')
 
+        # Create or store Bid object based on conditional
+        bid_queryset = Bid.objects.filter(user=request.user, bid_status=False)
+        
+        if bid_queryset.exists():
+            bid = bid_queryset[0]
+        else:
+            bid = Bid.objects.create(user=request.user)
+        
+        # Create PlacementBid given the above objects
+        placement_bid = PlacementBid.objects.create(user=request.user, 
+                                                    placement=placement, 
+                                                    bid=bid,
+                                                    offer=submitted_amount,
+                                                    shares=submitted_quantity)
+        return redirect('app:home')
+
     context = {'placement': placement}
 
     return render(request, 'placement_detail.html', context)
+
+
+@login_required
+def bid_summary(request):
+    pass
+
+
+@login_required
+def confirm_bids(request):
+    pass
