@@ -24,7 +24,7 @@
                         {% for b in bids %}
                             <tr>
                                 <td>{{ b.id }}</td>
-                                <td>{% if b.confirmed %}Confirmed{%else%}Unconfirmed{%endif%}</td>
+                                <td>{% if b.confirmed %}<span class="chip">Confirmed</span>{%else%} <span class="chip indigo darken-2 white-text">Unconfirmed</span>       {%endif%}</td>
                                 <td>{{ b.placement.placement_company }}</td>
                                 <td>{{ b.placementbid_created }}</td>
                                 <td>{{ b.offer}}</td>
