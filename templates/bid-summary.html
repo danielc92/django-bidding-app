@@ -5,7 +5,39 @@
 
 <section class="section">
     <section class="container">
-        {{bids}}
+        <div class="card">
+            <div class="card-content">
+                <h4>Your bid summary</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bid status</th>
+                            <th>Company Name</th>
+                            <th>Bidded on</th>
+                            <th>Offer</th>
+                            <th>Shares</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for b in bids %}
+                            <tr>
+                                <td>{{ b.id }}</td>
+                                <td>{% if b.confirmed %}Confirmed{%else%}Unconfirmed{%endif%}</td>
+                                <td>{{ b.placement.placement_company }}</td>
+                                <td>{{ b.placementbid_created }}</td>
+                                <td>{{ b.offer}}</td>
+                                <td>{{ b.shares}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <a href="" style="margin-top: 1rem;" class="btn waves-light waves-effect pink">Confirm Bids</a>
+            </div>
+        </div>
+
     </section>
 </section>
 
