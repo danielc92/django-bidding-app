@@ -4,7 +4,7 @@
           <a href="#!" class="brand-logo" style="font-size: 1.3rem;">BIDDING SYSTEM</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-                <li><a href="#">Marketplace</a></li>
+                <li><a href="{% url 'app:placements' %}">Marketplace</a></li>
                 <li><a href="#">Bid Summary</a></li>
                 {% if user.is_authenticated %}
                     <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>

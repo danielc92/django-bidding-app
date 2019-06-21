@@ -3,13 +3,19 @@
 {% block content %}
 <section class="section">
     <section class="container">
-        <form action="" method="POST" class="form">
-            {% csrf_token %}
-            {{ form.as_p }}
-
-            <button class="btn waves-effect" type="submit">Register</button>
-
-        </form>
+        <div class="card">
+            <div class="card-content">
+                    <form action="" method="POST" class="form">
+                            {% csrf_token %}
+                            <h3>Registeration page</h3>
+                            {{ form.as_p }}
+                
+                            <button style="margin-top: 1rem;" class="btn waves-effect" type="submit">Register</button>
+                
+                        </form>
+            </div>
+        </div>
+       
 
     </section>
 

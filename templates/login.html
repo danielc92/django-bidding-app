@@ -3,21 +3,27 @@
 {% block content %}
 <section class="section">
     <section class="container">
-        <form action="" method="POST" class="form">
-            {% csrf_token %}
-            <label for="" class="label">
-                Username
-            </label>
-            <input type="text" name="username">
-
-            <label for="" class="label">
-                Password
-            </label>
-            <input type="password" name="password">
-
-            <button class="btn waves-effect" type="submit">Login</button>
-
-        </form>
+            <div class="card">
+                    <div class="card-content">
+                            <form action="" method="POST" class="form">
+                                    {% csrf_token %}
+                                    <h3>Login</h3>
+                                    <label for="" class="label">
+                                        Username
+                                    </label>
+                                    <input type="text" name="username">
+                        
+                                    <label for="" class="label">
+                                        Password
+                                    </label>
+                                    <input type="password" name="password">
+                        
+                                    <button class="btn waves-effect" type="submit">Login</button>
+                        
+                                </form>
+                    </div>
+                </div>
+       
 
     </section>
 
