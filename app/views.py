@@ -102,4 +102,22 @@ def bid_summary(request):
 
 @login_required
 def confirm_bids(request):
-    pass
+
+    bids_queryset = PlacementBid.objects.filter(user=request.user, confirmed=False)
+    
+    if bids_queryset.exists():
+
+        # First get the order ID
+        bid_id = bids_queryset[0].bid.id
+
+        # Update PlacementBid Objects confirmed flag
+        for bid in bids_queryset:
+            bid.confirmed = True
+            bid.save()
+        
+        # Update the Bid object status
+        bid = Bid.objects.filter(id=bid_id)[0]
+        bid.bid_status = True
+        bid.save()
+
+    return redirect('app:bid-summary')

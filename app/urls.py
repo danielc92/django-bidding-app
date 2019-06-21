@@ -13,5 +13,6 @@ urlpatterns = [
     path('marketplace/', views.placements, name='placements'),
     path('marketplace/<placement_slug>/', views.placement_detail, name='placement-detail'),
 
-    path('my-bids/', views.bid_summary, name='bid-summary' )
+    path('my-bids/', views.bid_summary, name='bid-summary' ),
+    path('confirm-bids/', views.confirm_bids, name='confirm-bids')
 ]

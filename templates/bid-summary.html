@@ -14,9 +14,9 @@
                             <th>#</th>
                             <th>Bid status</th>
                             <th>Company Name</th>
-                            <th>Bidded on</th>
-                            <th>Offer</th>
-                            <th>Shares</th>
+                            <th>Timestamp</th>
+                            <th>$ Bidded</th>
+                            <th>no. Shares</th>
                         </tr>
                     </thead>
 
@@ -34,7 +34,7 @@
                     </tbody>
                 </table>
 
-                <a href="" style="margin-top: 1rem;" class="btn waves-light waves-effect pink">Confirm Bids</a>
+                <a href="{% url 'app:confirm-bids' %}" style="margin-top: 1rem;" class="btn waves-light waves-effect pink">Confirm Bids</a>
             </div>
         </div>
 
