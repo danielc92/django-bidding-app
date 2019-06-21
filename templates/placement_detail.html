@@ -23,17 +23,19 @@
 
        <div class="card">
            <div class="card-content">
-               <h5>Bidding Form</h5>
+               <form action="" method="POST" class="form">
+                   {% csrf_token %}
+               <h5>Bidding Details</h5>
                <label for="">
                    Share Quantity
                </label>
-               <input id="shares" type="number">
+               <input required id="quantity" type="number" min=1>
                <label for="">
                    Amount ($)
                </label>
-               <input id="quantity" type="number">
-               <button style="margin-top: 1rem;" class="btn pink waves-effect waves-light">Submit Bid</button>
-               
+               <input required id="amount" type="number" min=1>
+               <button type="submit" style="margin-top: 1rem;" class="btn pink waves-effect waves-light">Submit Bid</button>
+            </form>
            </div>
        </div>
 
@@ -41,14 +43,14 @@
             <div class="card-content">
                 <h5>Summary</h5>
                 <ul class="collection">
-                    <li class="collection-item">Number of shares
-                        <span class="secondary-content"></span>
+                    <li class="collection-item">Number of shares (#)
+                        <span class="secondary-content" id='span-shares'></span>
                     </li>
-                    <li class="collection-item">Amount bidded
-                            <span class="secondary-content"></span>
+                    <li class="collection-item">Total Amount Bidded ($)
+                            <span class="secondary-content" id='span-amount'></span>
                     </li>
-                    <li class="collection-item">Average bid per share
-                            <span class="secondary-content"></span>
+                    <li class="collection-item">Average Bid Per Share ($)
+                            <span class="secondary-content" id='span-average'></span>
                     </li>
                 </ul>
             </div>
@@ -62,16 +64,33 @@
 
 <script>
 
+var display_amount = document.getElementById('span-amount');
+var display_shares = document.getElementById('span-shares');
+var display_average = document.getElementById('span-average');
+
 var quantity_input = document.getElementById('quantity');
-var amount_input = document.getElementById('shares');
+var amount_input = document.getElementById('amount');
 
-amount_input.addEventListener('change', function () {
-    console.log(amount_input.value);
-})
+var amount;
+var quantity;
+var average;
 
-quantity_input.addEventListener('change', function () {
-    console.log(amount_input.value);
-})
+change_summary = () => {
+    amount = amount_input.value;
+    quantity = quantity_input.value;
+    
+    display_amount.innerText = `${amount}`;
+    display_shares.innerText = `${quantity}`;
+
+    if ((amount.length > 0) & (quantity.length > 0)) {
+        average = Math.round(amount / quantity);
+        display_average.innerText = `${average}`;
+    }
+
+}
+
+amount_input.addEventListener('change', change_summary)
+quantity_input.addEventListener('change', change_summary)
 
 </script>
 {% endblock content %}
