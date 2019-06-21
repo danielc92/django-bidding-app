@@ -4,15 +4,16 @@
 <section class="section">
     <section class="container">
         <form action="" method="POST" class="form">
+            {% csrf_token %}
             <label for="" class="label">
                 Username
             </label>
             <input type="text" name="username">
 
             <label for="" class="label">
-                Username
+                Password
             </label>
-            <input type="text" name="username">
+            <input type="password" name="password">
 
             <button class="btn waves-effect" type="submit">Login</button>
 
