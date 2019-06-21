@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'nav.html' %}
+
+              
+        
+      
+
+<section class="section">
+    <section class="container">
+            <div class="card">
+                    <div class="card-content">
+                        <h5>{{ placement.placement_title }}</h5>
+                        <p class="chip indigo white-text">{{ placement.placement_company }}</p>
+                        <p>{{placement.placement_company.company_description}}</p>
+                      
+                        <p class="grey-text">Placement information was added on: {{ placement.placement_created }}</p>
+                        <p class="grey-text">Placement information was updated on: {{ placement.placement_modified }}</p>
+                        
+                    </div>
+                </div>
+
+       <div class="card">
+           <div class="card-content">
+               <h5>Bidding Form</h5>
+               <label for="">
+                   Share Quantity
+               </label>
+               <input id="shares" type="number">
+               <label for="">
+                   Amount ($)
+               </label>
+               <input id="quantity" type="number">
+               <button style="margin-top: 1rem;" class="btn pink waves-effect waves-light">Submit Bid</button>
+               
+           </div>
+       </div>
+
+       <div class="card">
+            <div class="card-content">
+                <h5>Summary</h5>
+                <ul class="collection">
+                    <li class="collection-item">Number of shares
+                        <span class="secondary-content"></span>
+                    </li>
+                    <li class="collection-item">Amount bidded
+                            <span class="secondary-content"></span>
+                    </li>
+                    <li class="collection-item">Average bid per share
+                            <span class="secondary-content"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+{% include 'footer.html' %}
+
+<script>
+
+var quantity_input = document.getElementById('quantity');
+var amount_input = document.getElementById('shares');
+
+amount_input.addEventListener('change', function () {
+    console.log(amount_input.value);
+})
+
+quantity_input.addEventListener('change', function () {
+    console.log(amount_input.value);
+})
+
+</script>
+{% endblock content %}
+
+
+<!-- 
+placement_title = models.CharField(max_length=255)
+placement_slug = models.SlugField()
+placement_company = models.ForeignKey(Company, on_delete=models.CASCADE)
+
+
+placement_created = models.DateTimeField(auto_now_add=True)
+placement_modified = -->

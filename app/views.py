@@ -58,10 +58,10 @@ def placements(request):
     return render(request, 'placements.html', context)
 
 
-def placement_detail(request, slug):
+def placement_detail(request, placement_slug):
 
-    placements = get_object_or_404(Placement, slug=slug)
+    placement = get_object_or_404(Placement, placement_slug=placement_slug)
 
     context = {'placement': placement}
 
-    return render(request, 'placements.html', context)
+    return render(request, 'placement_detail.html', context)
