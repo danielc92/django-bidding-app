@@ -46,8 +46,8 @@
         <section class="row">
             <div class="col l12 s12">
                 <div class="card">
-                    <div class="card-content">
-                            <h4>Top 5 placements by $</h4>
+                    <div class="card-content center">
+                            <h5>Top 5 placements by $</h5>
                             <canvas id="myChart"></canvas>
                     </div>
                 </div>
@@ -93,12 +93,14 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: '# of offers',
             data:{{ top_5_offer_values|safe }},
-            backgroundColor: 'rgba(48, 63, 159, 0.6)',
-            borderColor: 'rgba(48, 63, 159, 1)',
+            backgroundColor: 'rgba(48, 63, 159, 1)',
             borderWidth: 1
         }]
     },
     options: {
+        legend: {
+            display: false
+        },
         scales: {
             yAxes: [{
                 gridLines: {display:false},

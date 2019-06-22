@@ -152,8 +152,8 @@ def dashboard(request):
                     .annotate(Sum('offer'))\
                     .order_by('-offer')[:5]
 
-    print(top_5)
     top_5_offer_names = [item['placement__placement_company__company_name'] for item in top_5]
+    top_5_offer_names = [name[:8] + '...' for name in top_5_offer_names]
     top_5_offer_values = [item['offer'] for item in top_5]
 
     # Store context
