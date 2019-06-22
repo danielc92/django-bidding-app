@@ -5,14 +5,13 @@
     <section class="container">
         <div class="card">
             <div class="card-content">
-                    <form action="" method="POST" class="form">
-                            {% csrf_token %}
-                            <h4>Registration page</h4>
-                            {{ form.as_p }}
-                
-                            <button style="margin-top: 1rem;" class="btn waves-effect" type="submit">Register</button>
-                
-                        </form>
+            <form action="" method="POST" class="form">
+                    {% csrf_token %}
+                    <h4>Registration page</h4>
+                    {{ form.as_p }}
+        
+                    <button style="margin-top: 1rem;" class="btn waves-effect" type="submit">Register</button>
+                </form>
             </div>
         </div>
        

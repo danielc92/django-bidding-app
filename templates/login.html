@@ -1,32 +1,38 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<section class="section">
-    <section class="container">
-            <div class="card">
-                    <div class="card-content">
+{% extends 'base.html' %} {% block content %}
+<main>
+    <section class="section">
+        <section class="container">
+            <div class="row">
+                <div class="col l6 m8 s12">
+                    <div class="card">
+                        <div class="card-content">
                             <form action="" method="POST" class="form">
-                                    {% csrf_token %}
-                                    <h4>Login</h4>
+                                {% csrf_token %}
+                                <h4>Login</h4>
+                                <div class="input-field">
                                     <label for="" class="label">
                                         Username
                                     </label>
                                     <input type="text" name="username">
-                        
+                                </div>
+                                <div class="input-field">
                                     <label for="" class="label">
                                         Password
                                     </label>
                                     <input type="password" name="password">
-                        
-                                    <button class="btn waves-effect" type="submit">Login</button>
-                        
-                                </form>
+                                </div>
+                                <div class="center input-field">
+                                    <button style="margin-top: 1rem;" class="btn waves-effect pink" type="submit">Login</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
-       
+            </div>
+
+        </section>
 
     </section>
-
-</section>
-
-{% endblock content %}
+</main>
+{% include 'footer.html' %} {% endblock content %}
