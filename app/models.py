@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Company(models.Model):
@@ -40,7 +40,7 @@ class Bid(models.Model):
     """
     The bid, synonmous with 'order'
     """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     bid_status = models.BooleanField(default=False)
 
     bid_created = models.DateTimeField(auto_now_add=True)
@@ -55,7 +55,7 @@ class PlacementBid(models.Model):
     The junction table for placement and bid models/tables. Contains every instance of a bid for a placement
     """
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     placement = models.ForeignKey(Placement, on_delete=models.CASCADE)
     bid  = models.ForeignKey(Bid, on_delete=models.CASCADE)
     offer = models.IntegerField()
