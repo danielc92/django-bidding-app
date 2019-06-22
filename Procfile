@@ -1,0 +1,1 @@
+web: gunicorn bidding_system.wsgi
