@@ -37,6 +37,33 @@ python manage.py runserver
 
 # Screenshots 
 
+### Home page
+Users receive notification if not logged in.
+![Home page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/1.png)
+
+### Logged in
+Once logged in a user has access to all the routes.
+![Once logged in](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/2.png)
+
+### Marketplace
+Shows all placements for each company.
+![Marketplace](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/4.png)
+
+### Placement detail view
+Shows details for a specific placement.
+![Placement detail view](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/5.png)
+
+### Responsive on mobile
+![Responsive on mobile](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/9.png)
+
+### Dashboard view
+![Dashboard view](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/8.png)
+
+### About page
+![About](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/7.png)
+
+### Individual Bid Summary
+![Individual Bid Summary](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/3.png)
 
 # Contributors
 - Daniel Corcoran
