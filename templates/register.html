@@ -1,22 +1,25 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<section class="section">
-    <section class="container">
-        <div class="card">
-            <div class="card-content">
-            <form action="" method="POST" class="form">
-                    {% csrf_token %}
-                    <h4>Registration page</h4>
-                    {{ form.as_p }}
-        
-                    <button style="margin-top: 1rem;" class="btn waves-effect" type="submit">Register</button>
-                </form>
+{% extends 'base.html' %} {% block content %}
+<main>
+    <section class="section">
+        <section class="container">
+            <div class="row">
+                <div class="col l6 m8 s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <form action="" method="POST" class="form">
+                                {% csrf_token %}
+                                <h4>Registration page</h4>
+                                {{ form.as_p }}
+                                <div class="center">
+                                        <button style="margin-top: 1rem;" class="btn pink waves-effect" type="submit">Register</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-       
-
+        </section>
     </section>
-
-</section>
-{% endblock content %}
+</main>
+{% include 'footer.html' %} {% endblock content %}
