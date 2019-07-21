@@ -65,5 +65,8 @@ class PlacementBid(models.Model):
     placementbid_created = models.DateTimeField(auto_now_add=True)
     placementbid_modified = models.DateTimeField(auto_now=True)
 
+    class Meta: 
+        ordering = ['-placementbid_modified'] 
+
     def __str__(self):
         return '{} - {} - {}'.format(self.shares, self.offer, self.user)
