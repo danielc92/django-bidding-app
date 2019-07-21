@@ -83,41 +83,41 @@ animateValue("total_users", 0, {{ total_users }}, 1750);
 animateValue("total_offers", 0, {{ total_offers }}, 500);
 </script>
 <script>
-// Chart.js code
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'horizontalBar',
-    data: {
-        labels: {{ top_5_offer_names|safe }},
-        datasets: [{
-            label: '# of offers',
-            data:{{ top_5_offer_values|safe }},
-            backgroundColor: 'rgba(48, 63, 159, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        legend: {
-            display: false
-        },
-        scales: {
-            yAxes: [{
-                gridLines: {display:false},
-                ticks: {
-                    beginAtZero: true,
-                    maxTicksLimit: 5
+        // Chart.js code
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: {{ top_5_offer_names|safe }},
+                datasets: [{
+                    label: '# of offers',
+                    data:{{ top_5_offer_values|safe }},
+                    backgroundColor: 'rgba(48, 63, 159, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        gridLines: {display:false},
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 5
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {display:true,  color:'#F5F5F5'},
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 6
+                        }
+                    }]
                 }
-            }],
-            xAxes: [{
-                gridLines: {display:true,  color:'#F5F5F5'},
-                ticks: {
-                    beginAtZero: true,
-                    maxTicksLimit: 6
-                }
-            }]
-        }
-    }
-});
-</script>
+            }
+        });
+        </script>
 
 {% endblock content %}
