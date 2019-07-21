@@ -5,16 +5,25 @@
        <strong>BIDDING PLATFORM</strong></a> -->
     <a href="#" data-target="mobile-demo" class="sidenav-trigger waves-effect waves-light"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'app:home' %}"><i class="material-icons">home</i></a></li>
         <li><a href="{% url 'app:placements' %}"><i class="material-icons">store</i></a></li>
         <li><a href="{% url 'app:bid-summary' %}"><i class="material-icons">view_list</i></a></li>
-        <li><a href="{% url 'app:about' %}"><i class="material-icons">assignment</i></a></li>
+        <li><a href="{% url 'app:about' %}"><i class="material-icons">help</i></a></li>
         <li><a href="{% url 'app:dashboard' %}"><i class="material-icons">insert_chart</i></a></li>
         {% if user.is_authenticated %}
             <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
             <li>Logged in as <strong>{{ user.username }}</strong></li>
         {% else %}
-        <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
-            <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+        <li>
+            <a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">
+                Register
+            </a>
+            </li>
+        <li>
+            <a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">
+                Login
+            </a>
+            </li>
         {% endif %}
     </ul>
 </div>
@@ -30,7 +39,11 @@
     {% if user.is_authenticated %}
         <li><a class="btn-small waves-effect waves-light grey darken-4" href="{% url 'app:logout' %}">Logout</a></li>
     {% else %}
-    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">Register</a></li>
-        <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">Login</a></li>
+    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:register' %}">
+        Register</a>
+    </li>
+    <li><a class="btn-small waves-effect waves-light pink" href="{% url 'app:login' %}">
+        Login</a>
+    </li>
     {% endif %}
 </ul>
