@@ -3,7 +3,7 @@
     <section class="section">
         <section class="container">
             <div class="row">
-                <div class="col l6 m8 s12">
+                <div class="col l8 m12 s12">
                     <div class="card">
                         <div class="card-content">
                             <form action="" method="POST" class="form">
@@ -21,9 +21,10 @@
                                     </label>
                                     <input type="password" name="password">
                                 </div>
-                                <div class="center input-field">
+                                <div class="input-field">
                                     <button style="margin-top: 1rem;" class="btn waves-effect waves-light pink" type="submit">Login</button>
                                 </div>
+                                <p>Don't have an account? click <a href="{% url 'app:register' %}" style="margin-top: 1rem;" type="a">here</a> to register.</p>
                             </form>
                         </div>
                     </div>
