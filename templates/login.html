@@ -8,7 +8,7 @@
                         <div class="card-content">
                             <form action="" method="POST" class="form">
                                 {% csrf_token %}
-                                <h4>Login</h4>
+                                <h5>Login page</h5>
                                 <div class="input-field">
                                     <label for="" class="label">
                                         Username
@@ -25,6 +25,8 @@
                                     <button style="margin-top: 1rem;" class="btn waves-effect waves-light pink" type="submit">Login</button>
                                 </div>
                                 <p>Don't have an account? click <a href="{% url 'app:register' %}" style="margin-top: 1rem;" type="a">here</a> to register.</p>
+                                <p>Don't have time to sign up? Use the guest account credentials below.</p>
+                                <p class="chip">username: 'dc' password: '1'</p>
                             </form>
                         </div>
                     </div>
