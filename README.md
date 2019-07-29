@@ -37,33 +37,26 @@ python manage.py runserver
 
 # Screenshots 
 
-### Home page
-Users receive notification if not logged in.
-![Home page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/1.png)
+**Home page**
+![home page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.19%20pm.jpg)
 
-### Logged in
-Once logged in a user has access to all the routes.
-![Once logged in](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/2.png)
+**About page**
+![About page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.43%20pm.jpg)
 
-### Marketplace
-Shows all placements for each company.
-![Marketplace](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/4.png)
+**Login page**
+![login page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.13.50%20pm.jpg)
 
-### Placement detail view
-Shows details for a specific placement.
-![Placement detail view](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/5.png)
+**Registration page**
+![registration page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.13.56%20pm.jpg)
 
-### Responsive on mobile
-![Responsive on mobile](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/9.png)
+**Placements page**
+![placements page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.35%20pm.jpg)
 
-### Dashboard view
-![Dashboard view](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/8.png)
+**Bid summary page**
+![bid summary page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.40%20pm.jpg)
 
-### About page
-![About](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/7.png)
-
-### Individual Bid Summary
-![Individual Bid Summary](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/3.png)
+**Dashboard page**
+![Dashboard page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.47%20pm.jpg)
 
 # Contributors
 - Daniel Corcoran
