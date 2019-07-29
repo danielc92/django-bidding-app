@@ -58,6 +58,12 @@ python manage.py runserver
 **Dashboard page**
 ![Dashboard page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.14.47%20pm.jpg)
 
+**Bid submission page**
+![Bid submission page](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.20.31%20pm.jpg)
+
+**Responsive on small devices**
+![Responsive](https://github.com/danielc92/django-bidding-app/blob/master/screenshots/Screen%20Shot%202019-07-29%20at%202.20.45%20pm.jpg)
+
 # Contributors
 - Daniel Corcoran
 
